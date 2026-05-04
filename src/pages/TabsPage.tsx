@@ -28,7 +28,7 @@ export const TabsPage = () => {
               })}
               onClick={() => setActiveTabId(tab.id)}
             >
-              <Link to={`${tab.id}`}>{tab.title}</Link>
+              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
           ))}
         </ul>

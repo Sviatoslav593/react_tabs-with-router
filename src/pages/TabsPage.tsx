@@ -1,6 +1,6 @@
-import cn from 'classnames';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Tabs } from '../components/Tabs';
 
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,21 +15,7 @@ export const TabsPage = () => {
     <div className="container">
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={cn({
-                'is-active': tab.id === tabId,
-              })}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Tabs />
 
       {tabs.find(tab => tab.id === tabId) ? (
         <div className="block" data-cy="TabContent">

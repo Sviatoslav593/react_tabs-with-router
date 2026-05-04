@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 const tabs = [
@@ -9,8 +9,6 @@ const tabs = [
 ];
 
 export const TabsPage = () => {
-  const [activeTabId, setActiveTabId] = useState<string | null>(null);
-
   const { tabId } = useParams();
 
   return (
@@ -24,9 +22,8 @@ export const TabsPage = () => {
               key={tab.id}
               data-cy="Tab"
               className={cn({
-                'is-active': tab.id === activeTabId,
+                'is-active': tab.id === tabId,
               })}
-              onClick={() => setActiveTabId(tab.id)}
             >
               <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
             </li>
@@ -34,7 +31,7 @@ export const TabsPage = () => {
         </ul>
       </div>
 
-      {activeTabId !== null ? (
+      {tabs.find(tab => tab.id === tabId) ? (
         <div className="block" data-cy="TabContent">
           {tabs.find(tab => tab.id === tabId)?.content}
         </div>

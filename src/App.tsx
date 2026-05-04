@@ -2,7 +2,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import React from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 export const App = () => {
@@ -17,22 +17,22 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <NavLink
+            <Link
               to="/"
               className={cn('navbar-item', {
                 'is-active': pathname === '/',
               })}
             >
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/tabs"
               className={cn('navbar-item', {
                 'is-active': pathname.startsWith('/tabs'),
               })}
             >
               Tabs
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>
